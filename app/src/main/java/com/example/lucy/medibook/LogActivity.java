@@ -2,6 +2,7 @@ package com.example.lucy.medibook;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +15,6 @@ import java.util.List;
 
 public class LogActivity extends AppCompatActivity {
     Spinner dropdownmenu;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,5 +45,10 @@ public class LogActivity extends AppCompatActivity {
             }
 
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_log, menu);
+        return true;
     }
 }
