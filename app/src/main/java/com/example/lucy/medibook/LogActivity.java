@@ -32,6 +32,17 @@ public class LogActivity extends AppCompatActivity {
 
         mETitle = (EditText) findViewById(R.id.levelbox);
         mEContent = (EditText) findViewById(R.id.commentbox);
+        mLogFileName = getIntent().getStringExtra("LOG_FILE");
+        if(mLogFileName!= null && !mLogFileName.isEmpty()){
+            mLoadedLog = Utilities.getLogByName(this, mLogFileName);
+            if (mLoadedLog != null) {
+                mETitle.setText(mLoadedLog.getLevel());
+                mEContent.setText(mLoadedLog.getContent());
+
+            }
+
+        }
+
 
         List<String> list = new ArrayList<>();
         list.add("Morning");
@@ -74,12 +85,15 @@ public class LogActivity extends AppCompatActivity {
         return true;
     }
     private void saveLog(){
-        Log log;
+        Log log = new Log(System.currentTimeMillis(), mETitle.getText().toString()
+                ,mEContent.getText().toString());
+        if (Utilities.saveLog(this, log)) {
+            Toast.makeText(getApplicationContext(), "Success!! Diary Entry Saved", Toast.LENGTH_SHORT).show();
 
-        if(mETitle.getText().toString().trim().isEmpty() ||mEContent.getText().toString().trim().isEmpty()){
-            Toast.makeText(getApplicationContext(), "Please Enter a Title and Content", Toast.LENGTH_SHORT).show();
-            return;
+        } else {
+            Toast.makeText(getApplicationContext(), "Not Saved, do you have enough space?", Toast.LENGTH_SHORT).show();
         }
+        finish();
 
     }
 }
