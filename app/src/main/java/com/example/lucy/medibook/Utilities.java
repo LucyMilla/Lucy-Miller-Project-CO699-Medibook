@@ -74,5 +74,27 @@ public class Utilities {
         }
         return logs;
     }
+    public static Log getLogByName(Context context, String fileName){
+        File file = new File(context.getFilesDir(), fileName);
+        Log log;
+        if(file.exists()){
+            FileInputStream fis;
+            ObjectInputStream ois;
+            try{
+                fis = context.openFileInput(fileName);
+                ois = new ObjectInputStream(fis);
+
+                log = (Log) ois.readObject();
+
+                fis.close();
+                ois.close();
+            }catch (IOException | ClassNotFoundException e){
+                e.printStackTrace();
+                return null;
+            }
+            return log;
+        }
+        return null;
+    }
 }
 

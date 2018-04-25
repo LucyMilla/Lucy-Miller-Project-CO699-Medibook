@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -51,13 +53,26 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Log> logs = Utilities.getallSavedLogs(this);
 
-        if(logs != null || logs.size() ==0){
+        if(logs == null || logs.size() ==0){
             Toast.makeText(this, " You have no save logs", Toast.LENGTH_SHORT).show();
             return;
 
         }else{
             LogAdapter la = new LogAdapter(this, R.layout.item_log, logs);
             mListViewLogs.setAdapter(la);
+
+            mListViewLogs.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                    String fileName =((Log)mListViewLogs.getItemAtPosition(position)).getDateTime() + Utilities.FILE_EXTENSION;
+
+                    Intent viewLogIntent = new Intent(getApplicationContext(),LogActivity.class);
+                    viewLogIntent.putExtra("LOG_FILE", fileName);
+                    startActivity(viewLogIntent);
+                }
+
+
+            });
         }
     }
 }
