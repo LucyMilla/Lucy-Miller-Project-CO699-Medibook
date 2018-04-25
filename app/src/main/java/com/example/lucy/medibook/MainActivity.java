@@ -30,11 +30,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_new:
                 //Start New Blood Log
                 startActivity(new Intent(this, LogActivity.class));
-                break;
+                return true;
+            case R.id.action_exit:
+                finish();
+                return true;
+            default:
+                return false;
 
 
         }
-        return true;
+
     }
 }
 
