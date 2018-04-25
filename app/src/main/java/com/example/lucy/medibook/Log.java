@@ -3,55 +3,47 @@ package com.example.lucy.medibook;
 import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
+import android.text.Editable;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Lucy on 26/03/2018.
  */
+//Serializable- the application knows to pick up where left off incase user is in the middle of writing an unsaved log
 
-public class Log {
+public class Log implements Serializable{
     private long mDateTime;
-    private String mTOD;
     private String mLevel;
     private String mContent;
 
-    public Log(String content, String tod, long dateTime, String level ){
+    public Log(long dateTime, String content, String level){
         mContent = content;
-        mTOD = tod;
         mDateTime = dateTime;
         mLevel = level;
     }
-
-    public void setmDateTime(long mDateTime) {
-        this.mDateTime = mDateTime;
+    public void setContent(String content) {
+        mContent = content;
     }
 
-    public void setmTOD(String mTOD) {
-        this.mTOD = mTOD;
+    public void setDateTime(long dateTime) {
+        mDateTime = dateTime;
     }
 
-    public void setmLevel(String mLevel) {
-        this.mLevel = mLevel;
+    public void setLevel(String level) {
+        mLevel = level;
     }
 
-    public void setmContent(String mContent) {
-        this.mContent = mContent;
-    }
-
-    public long getmDateTime() {
+    public long getDateTime() {
         return mDateTime;
     }
 
-    public String getmLevel() {
+    public String getLevel() {
         return mLevel;
     }
 
-    public String getmTOD() {
-        return mTOD;
-    }
-
-    public String getmContent() {
+    public String getContent() {
         return mContent;
     }
 
@@ -62,7 +54,4 @@ public class Log {
         return sdf.format(new Date(mDateTime));
     }
 
-    public static void d(String localClassName, String s) {
-
-    }
 }

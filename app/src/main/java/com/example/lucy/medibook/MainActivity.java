@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +42,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mListViewLogs.setAdapter(null);
+
+        ArrayList<Log> logs = Utilities.getallSavedLogs(this);
+
+        if(logs != null || logs.size() ==0){
+            Toast.makeText(this, " You have no save logs", Toast.LENGTH_SHORT).show();
+            return;
+
+        }else{
+            LogAdapter la = new LogAdapter(this, R.layout.item_log, logs);
+            mListViewLogs.setAdapter(la);
+        }
     }
 }
 
