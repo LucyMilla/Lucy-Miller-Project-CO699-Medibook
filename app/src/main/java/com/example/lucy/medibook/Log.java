@@ -62,4 +62,7 @@ public class Log {
         return sdf.format(new Date(mDateTime));
     }
 
+    public static void d(String localClassName, String s) {
+
+    }
 }
