@@ -14,16 +14,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_log_date"
-        android:text="11/12/2017"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/list_log_content"
+        android:text="Contents"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_log_content"
-        android:text="Contents"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/list_log_date"
+        android:text="11/12/2017"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         />
 
 </LinearLayout>

@@ -18,21 +18,21 @@ public class Log implements Serializable{
     private String mLevel;
     private String mContent;
 
-    public Log(long dateTime, String content, String level){
+    public Log(long dateTime, String level,String content){
         mContent = content;
         mDateTime = dateTime;
         mLevel = level;
     }
+    public void setLevel(String level) {
+        mLevel = level;
+    }
+
     public void setContent(String content) {
         mContent = content;
     }
 
     public void setDateTime(long dateTime) {
         mDateTime = dateTime;
-    }
-
-    public void setLevel(String level) {
-        mLevel = level;
     }
 
     public long getDateTime() {

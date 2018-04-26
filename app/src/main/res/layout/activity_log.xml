@@ -11,25 +11,22 @@
         android:id="@+id/levelbox"
         android:layout_width="match_parent"
         android:layout_height="150px"
+        android:gravity="start"
         android:layout_weight="0.00"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:inputType="text"
         android:singleLine="true"
-        android:text="Level" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="80px"
-        android:layout_alignParentStart='true'
-        android:layout_weight="0.00" />
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="16dp"
+         />
 
     <EditText
-        android:id="@+id/commentbox"
+        android:id="@+id/commenttbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Comment" />
+        android:layout_height="359dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="102dp"/>
 </LinearLayout>
