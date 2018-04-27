@@ -96,5 +96,14 @@ public class Utilities {
         }
         return null;
     }
+
+    public static void deleteLog(Context context, String fileName) {
+        File dir= context.getFilesDir();
+        File file = new File(dir, fileName);
+
+        if(file.exists()){
+            file.delete();
+        }
+    }
 }
 

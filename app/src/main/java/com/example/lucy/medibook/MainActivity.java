@@ -62,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
             mListViewLogs.setAdapter(la);
 
             mListViewLogs.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                    String fileName =((Log)mListViewLogs.getItemAtPosition(position)).getDateTime() + Utilities.FILE_EXTENSION;
-
+                    String fileName = ((Log)mListViewLogs.getItemAtPosition(position)).getDateTime()
+                            + Utilities.FILE_EXTENSION;
                     Intent viewLogIntent = new Intent(getApplicationContext(),LogActivity.class);
                     viewLogIntent.putExtra("LOG_FILE", fileName);
                     startActivity(viewLogIntent);
