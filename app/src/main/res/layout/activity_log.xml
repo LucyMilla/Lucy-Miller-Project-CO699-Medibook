@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context="com.example.lucy.medibook.LogActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Level"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
     <EditText
         android:id="@+id/levelbox"
         android:layout_width="match_parent"
@@ -21,12 +27,33 @@
         tools:layout_editor_absoluteY="16dp"
          />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Make A Comment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
     <EditText
         android:id="@+id/commenttbox"
         android:layout_width="match_parent"
-        android:layout_height="359dp"
+        android:layout_height="268dp"
         android:gravity="top"
         android:inputType="textMultiLine"
         tools:layout_editor_absoluteX="62dp"
         tools:layout_editor_absoluteY="102dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Email"
+        />
+
 </LinearLayout>
+

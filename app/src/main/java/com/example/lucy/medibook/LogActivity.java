@@ -2,6 +2,7 @@ package com.example.lucy.medibook;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class LogActivity extends AppCompatActivity {
     private EditText mETitle;
     private EditText mEContent;
     private String mLogFileName;
+    private EditText mEditTextTo;
     private Log mLoadedLog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,17 @@ public class LogActivity extends AppCompatActivity {
 
         mETitle = (EditText) findViewById(R.id.levelbox);
         mEContent = (EditText) findViewById(R.id.commenttbox);
+        mEditTextTo = (EditText)findViewById(R.id.edit_text_to);
+
+        Button buttonsend = (Button) findViewById(R.id.button_send);
+        buttonsend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
+
+
         mLogFileName = getIntent().getStringExtra("LOG_FILE");
         if(mLogFileName!= null && !mLogFileName.isEmpty()){
             mLoadedLog = Utilities.getLogByName(getApplicationContext(),mLogFileName);
@@ -42,6 +56,23 @@ public class LogActivity extends AppCompatActivity {
 
         }
 
+
+    }
+    private void sendMail(){
+        String recipientList = mEditTextTo.getText().toString();
+        String[] recipients = recipientList.split(",");
+
+        String message = mEContent.getText().toString();
+        String message2 = mETitle.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL,recipients);
+        intent.putExtra(Intent.EXTRA_TEXT,message2);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "choose and Email Client" ));
 
     }
     @Override
@@ -103,6 +134,7 @@ public class LogActivity extends AppCompatActivity {
                         }
                     })
                     .setNegativeButton("no", null)
+                    //Cancelable doesnt let the user exit the dialog box from clicking outside, an options MUST be selected
                     .setCancelable(false);
             dialog.show();
         }
