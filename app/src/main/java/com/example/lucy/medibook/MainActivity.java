@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_exit:
                 finish();
                 return true;
+
+            case R.id.action_home:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            case R.id.action_calculate:
+                startActivity(new Intent(this, CalActivity.class));
+                return true;
+
             default:
                 return false;
 

@@ -63,13 +63,11 @@ public class LogActivity extends AppCompatActivity {
         String[] recipients = recipientList.split(",");
 
         String message = mEContent.getText().toString();
-        String message2 = mETitle.getText().toString();
+        String message2 = mETitle.getText().toString() + "\n" + "\n" + message;
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL,recipients);
         intent.putExtra(Intent.EXTRA_TEXT,message2);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-
 
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "choose and Email Client" ));

@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogActivity"></activity>
+        <activity android:name=".CalActivity"></activity>
     </application>
 
 </manifest>
