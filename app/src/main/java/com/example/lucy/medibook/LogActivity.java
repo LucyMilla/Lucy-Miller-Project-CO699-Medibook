@@ -79,12 +79,14 @@ public class LogActivity extends AppCompatActivity {
         return true;
     }
     @Override
+    //without the break after save log a delete toast message would appear when save button was pressed
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.action_save:
                 saveLog();
+                break;
             case R.id.action_delete:
-                deleteDiary();
+                deleteLog();
                 break;
         }
         return true;
@@ -114,7 +116,7 @@ public class LogActivity extends AppCompatActivity {
         finish();
 
     }
-    private void deleteDiary() {
+    private void deleteLog() {
         if (mLoadedLog == null) {
             finish();
         } else {

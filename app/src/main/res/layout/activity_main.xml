@@ -8,6 +8,20 @@
     android:layout_height="match_parent"
     tools:context="com.example.lucy.medibook.MainActivity">
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Users Log:"
+    android:paddingTop="8dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="8dp"
+    android:textAppearance="@android:style/TextAppearance.Material.Large" />
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     <ListView
         android:id="@+id/listviewlog"
         android:layout_width="fill_parent"

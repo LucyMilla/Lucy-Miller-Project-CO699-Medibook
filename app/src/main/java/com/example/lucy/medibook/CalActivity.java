@@ -48,7 +48,8 @@ public class CalActivity extends AppCompatActivity {
             num1 = Integer.parseInt(carb);
         }catch(NumberFormatException ex){
 
-            t1.setText("0");
+            t1.setText("");
+            Toast.makeText(getApplicationContext(), "Please Enter Both Carbohydrates and Ratio", Toast.LENGTH_SHORT).show();
             return;
         }
         int num2;
@@ -56,7 +57,8 @@ public class CalActivity extends AppCompatActivity {
             num2 = Integer.parseInt(ratio);
         }catch(NumberFormatException ex){
 
-            t1.setText("0");
+            t1.setText("");
+            Toast.makeText(getApplicationContext(), "Please Enter Both Carbohydrates and Ratio", Toast.LENGTH_SHORT).show();
             return;
         }
         int sum = num1 / num2;

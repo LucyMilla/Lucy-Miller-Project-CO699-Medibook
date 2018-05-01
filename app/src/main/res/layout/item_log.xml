@@ -9,6 +9,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_log_level"
         android:text="Title"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         />
     <TextView
@@ -16,6 +19,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_log_content"
         android:text="Contents"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         />
     <TextView
@@ -24,6 +29,9 @@
         android:id="@+id/list_log_date"
         android:text="11/12/2017"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         />
 
 </LinearLayout>
